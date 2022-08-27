@@ -24,5 +24,6 @@ public class CustomerInfo {
     private String customerName;
     private String customerEmail;
     private String customerPassword;
+    private String customerAddress;
 
 }
