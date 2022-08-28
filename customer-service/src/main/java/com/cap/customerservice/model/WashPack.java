@@ -1,4 +1,4 @@
-package com.cap.washer.models;
+package com.cap.customerservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
