@@ -6,6 +6,7 @@ import com.cap.washer.repository.WashPackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +25,12 @@ public class WashPackController {
 
         List<WashPack> list= washPackRepository.findAll();
         return ResponseEntity.ok(list);
+    }
+
+    @GetMapping("/view/{name}")
+    public  WashPack getWashPackByName(@PathVariable("name") String washPackName)
+    {
+        return washPackRepository.findByWashPackName(washPackName);
     }
 
 

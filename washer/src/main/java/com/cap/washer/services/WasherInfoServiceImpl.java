@@ -34,7 +34,7 @@ public class WasherInfoServiceImpl implements WasherInfoService {
 
     @Override
     public void deleteWasherInfo(int userId) {
-            washerInfoRepository.deleteById(userId);
+          washerInfoRepository.deleteById(userId);
     }
 
 

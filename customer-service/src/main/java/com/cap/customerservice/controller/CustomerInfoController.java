@@ -46,10 +46,10 @@ public class CustomerInfoController {
 
 //    @Autowired
 //    private RestTemplate restTemplate;
-//
+
 //    @GetMapping("/get")
 //    public WashPack[] getWashPacks() {
-//        ResponseEntity<WashPack[]> response = restTemplate.getForEntity("http://Washer-Service/washer/viewall/", WashPack[].class);
+//        ResponseEntity<WashPack[]> response = restTemplate.getForEntity("http://localhost:8081/washpack/viewall/", WashPack[].class);
 //        WashPack[] washPacks = response.getBody();
 //        return (washPacks);
 //

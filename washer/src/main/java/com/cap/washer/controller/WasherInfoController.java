@@ -5,6 +5,7 @@ import com.cap.washer.models.WasherInfo;
 import com.cap.washer.services.SequenceGeneratorService;
 import com.cap.washer.services.WasherInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,6 +35,7 @@ public class WasherInfoController {
     public WasherInfo updateWasherInfo(@RequestBody WasherInfo washerInfo, @PathVariable("id") int washerId)
     {
         return washerInfoService.updateWasherInfo(washerInfo, washerId);
+
     }
 
 
