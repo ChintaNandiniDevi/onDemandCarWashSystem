@@ -24,6 +24,11 @@ public class WasherInfoServiceImpl implements WasherInfoService {
     }
 
     @Override
+    public WasherInfo findByWasherEmail(String washerEmail) {
+        return washerInfoRepository.findByWasherEmail(washerEmail);
+    }
+
+    @Override
     public WasherInfo updateWasherInfo(WasherInfo washerInfo, int washerId) {
         WasherInfo wI= washerInfoRepository.findById(washerId).get();
         wI.setWasherName(washerInfo.getWasherName());

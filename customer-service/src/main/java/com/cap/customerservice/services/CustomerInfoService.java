@@ -8,7 +8,9 @@ import java.util.Optional;
 public interface CustomerInfoService {
     public CustomerInfo insertCustomerInfo(CustomerInfo customerId);
     public List<CustomerInfo> getAllCustomers();
-    public Optional<CustomerInfo> findCustomerInfoById(int customerId);
+     public Optional<CustomerInfo> findCustomerInfoById(int customerId);
+    public CustomerInfo findByCustomerEmail(String customerEmail);
+
     public CustomerInfo updateCustomerInfo(CustomerInfo customerInfo, int customerId);
     public void deleteCustomerInfo(int customerId);
 }

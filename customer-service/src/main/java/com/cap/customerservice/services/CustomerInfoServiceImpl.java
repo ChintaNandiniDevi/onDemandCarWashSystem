@@ -26,6 +26,11 @@ public class CustomerInfoServiceImpl implements CustomerInfoService{
     }
 
     @Override
+    public CustomerInfo findByCustomerEmail(String customerEmail) {
+        return customerInfoRepository.findByCustomerEmail(customerEmail);
+    }
+
+    @Override
     public Optional<CustomerInfo> findCustomerInfoById(int customerId) {
         Optional<CustomerInfo> customerInfo=customerInfoRepository.findById(customerId);
         return customerInfo;

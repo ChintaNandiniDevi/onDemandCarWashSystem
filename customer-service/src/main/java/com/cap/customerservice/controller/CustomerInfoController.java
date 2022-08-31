@@ -20,6 +20,11 @@ public class CustomerInfoController {
     @Autowired
     CustomerInfoService customerInfoService;
 
+    @GetMapping("/")
+    public String getCustomer(){
+        return "hii Customer";
+    }
+
     @PostMapping("/add")
     public CustomerInfo insertUserInfo(@RequestBody CustomerInfo customerInfo) {
         customerInfo.setCustomerId(sequenceGeneratorService.getSequenceNumber(CustomerInfo.SEQUENCE_NAME));
@@ -29,6 +34,11 @@ public class CustomerInfoController {
     @GetMapping("/view")
     public List<CustomerInfo> getAllUsers() {
         return customerInfoService.getAllCustomers();
+    }
+
+    @GetMapping("/view/{email}")
+    public CustomerInfo getByCustomerEmail(@PathVariable("email") String customerEmail){
+        return customerInfoService.findByCustomerEmail(customerEmail);
     }
 
     @PutMapping("/update/{id}")

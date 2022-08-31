@@ -20,6 +20,11 @@ public class WasherInfoController {
     @Autowired
     WasherInfoService washerInfoService;
 
+    @RequestMapping("/")
+    public String getWasher(){
+        return "hii washer";
+    }
+
     @PostMapping("/add")
     public WasherInfo insertWasherInfo(@RequestBody WasherInfo washerInfo){
         washerInfo.setWasherId(sequenceGeneratorService.getSequenceNumber(WasherInfo.SEQUENCE_NAME));
@@ -29,6 +34,11 @@ public class WasherInfoController {
     @GetMapping("/view")
     public List<WasherInfo> getAllWashers(){
         return washerInfoService.getAllWashers();
+    }
+
+    @GetMapping("/view/{email}")
+    public WasherInfo getByWasherEmail(@PathVariable("email") String washerEmail){
+        return washerInfoService.findByWasherEmail(washerEmail);
     }
 
     @PutMapping("/update/{id}")
