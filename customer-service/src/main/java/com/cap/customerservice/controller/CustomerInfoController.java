@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/customer")
 public class CustomerInfoController {
@@ -27,7 +28,7 @@ public class CustomerInfoController {
 
     @PostMapping("/add")
     public CustomerInfo insertUserInfo(@RequestBody CustomerInfo customerInfo) {
-        customerInfo.setCustomerId(sequenceGeneratorService.getSequenceNumber(CustomerInfo.SEQUENCE_NAME));
+//        customerInfo.setCustomerId(sequenceGeneratorService.getSequenceNumber(CustomerInfo.SEQUENCE_NAME));
         return customerInfoService.insertCustomerInfo(customerInfo);
     }
 

@@ -10,11 +10,15 @@ import java.util.List;
 
 @Service
 public class WasherInfoServiceImpl implements WasherInfoService {
+
+    @Autowired
+    SequenceGeneratorService sequenceGeneratorService;
     @Autowired
     WasherInfoRepository washerInfoRepository;
 
     @Override
     public WasherInfo insertWasherInfo(WasherInfo washerInfo) {
+        washerInfo.setWasherId(sequenceGeneratorService.getSequenceNumber(WasherInfo.SEQUENCE_NAME));
         return washerInfoRepository.save(washerInfo);
     }
 

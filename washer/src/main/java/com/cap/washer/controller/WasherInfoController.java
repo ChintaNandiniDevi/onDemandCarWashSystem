@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/washer")
 public class WasherInfoController {
@@ -27,7 +28,7 @@ public class WasherInfoController {
 
     @PostMapping("/add")
     public WasherInfo insertWasherInfo(@RequestBody WasherInfo washerInfo){
-        washerInfo.setWasherId(sequenceGeneratorService.getSequenceNumber(WasherInfo.SEQUENCE_NAME));
+//        washerInfo.setWasherId(sequenceGeneratorService.getSequenceNumber(WasherInfo.SEQUENCE_NAME));
         return washerInfoService.insertWasherInfo(washerInfo);
     }
 

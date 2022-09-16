@@ -13,10 +13,13 @@ import java.util.Optional;
 public class CustomerInfoServiceImpl implements CustomerInfoService{
 
     @Autowired
+    SequenceGeneratorService sequenceGeneratorService;
+    @Autowired
     CustomerInfoRepository customerInfoRepository;
 
     @Override
     public CustomerInfo insertCustomerInfo(CustomerInfo customerInfo) {
+        customerInfo.setCustomerId(sequenceGeneratorService.getSequenceNumber(CustomerInfo.SEQUENCE_NAME));
         return customerInfoRepository.save(customerInfo);
     }
 
