@@ -52,4 +52,9 @@ public class CustomerInfoServiceImpl implements CustomerInfoService{
     public void deleteCustomerInfo(int customerId) {
         customerInfoRepository.deleteById(customerId);
     }
+
+    @Override
+    public CustomerInfo getCustomerById(int customerId) {
+        return customerInfoRepository.findById(customerId).get();
+    }
 }

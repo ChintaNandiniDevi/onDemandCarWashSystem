@@ -15,4 +15,5 @@ public interface WasherInfoService {
 
     public void deleteWasherInfo(int washerId);
 
+    WasherInfo getById(int washerId);
 }

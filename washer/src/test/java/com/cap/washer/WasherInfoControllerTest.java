@@ -73,7 +73,7 @@ public class WasherInfoControllerTest {
     @Test
     public void insertWasherInfo_Test() throws Exception {
         WasherInfo washer_1 = new WasherInfo(1,"nandini","nandini@gmail.com","nandu");
-        //Product(9,"kidsSpecial","joggers","Clothing",null,null,null,999,"Its a very good",null);
+
 
         Mockito.when(washerInfoService.insertWasherInfo(washer_1)).thenReturn(washer_1);
 
@@ -93,8 +93,6 @@ public class WasherInfoControllerTest {
     public void updateWasherInfo_Test() throws Exception {
 
         WasherInfo updateRecord = new WasherInfo(3, "padmavati", "padmavati@gmail.com", "1234");
-
-
 
         Mockito.when(washerInfoService.updateWasherInfo(updateRecord, updateRecord.getWasherId())).thenReturn(updateRecord);
 

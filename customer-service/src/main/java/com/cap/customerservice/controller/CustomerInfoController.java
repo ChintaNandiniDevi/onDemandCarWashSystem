@@ -6,9 +6,11 @@ import com.cap.customerservice.services.CustomerInfoService;
 import com.cap.customerservice.services.SequenceGeneratorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import javax.validation.Valid;
 import java.util.List;
 @CrossOrigin("*")
 @RestController
@@ -26,8 +28,9 @@ public class CustomerInfoController {
         return "hii Customer";
     }
 
+    @Validated
     @PostMapping("/add")
-    public CustomerInfo insertUserInfo(@RequestBody CustomerInfo customerInfo) {
+    public CustomerInfo insertUserInfo(@RequestBody @Valid CustomerInfo customerInfo) {
 //        customerInfo.setCustomerId(sequenceGeneratorService.getSequenceNumber(CustomerInfo.SEQUENCE_NAME));
         return customerInfoService.insertCustomerInfo(customerInfo);
     }
@@ -37,13 +40,20 @@ public class CustomerInfoController {
         return customerInfoService.getAllCustomers();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<CustomerInfo> getCustomerById(@PathVariable("id") int id){
+        CustomerInfo cI=customerInfoService.getCustomerById(id);
+        return ResponseEntity.ok(cI);
+    }
+
     @GetMapping("/view/{email}")
     public CustomerInfo getByCustomerEmail(@PathVariable("email") String customerEmail){
         return customerInfoService.findByCustomerEmail(customerEmail);
     }
 
+    @Validated
     @PutMapping("/update/{id}")
-    public CustomerInfo updateUserInfo(@RequestBody CustomerInfo customerInfo, @PathVariable("id") int userId) {
+    public CustomerInfo updateUserInfo(@RequestBody @Valid CustomerInfo customerInfo, @PathVariable("id") int userId) {
         return customerInfoService.updateCustomerInfo(customerInfo, userId);
     }
 

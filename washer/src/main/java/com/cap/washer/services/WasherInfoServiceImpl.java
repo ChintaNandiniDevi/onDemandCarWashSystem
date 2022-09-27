@@ -46,5 +46,10 @@ public class WasherInfoServiceImpl implements WasherInfoService {
           washerInfoRepository.deleteById(userId);
     }
 
+    @Override
+    public WasherInfo getById(int washerId) {
+        return washerInfoRepository.findById(washerId).get();
+    }
+
 
 }

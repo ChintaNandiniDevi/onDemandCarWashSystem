@@ -13,4 +13,6 @@ public interface CustomerInfoService {
 
     public CustomerInfo updateCustomerInfo(CustomerInfo customerInfo, int customerId);
     public void deleteCustomerInfo(int customerId);
+
+    CustomerInfo getCustomerById(int customerId);
 }
